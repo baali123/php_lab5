@@ -1,0 +1,59 @@
+CREATE TABLE trains (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    destination VARCHAR(100) NOT NULL,
+    date DATE NOT NULL,
+    available_seats INT NOT NULL DEFAULT 100
+);
+
+CREATE TABLE bookings (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    train_id INT NOT NULL,
+    passenger_name VARCHAR(100) NOT NULL,
+    passenger_email VARCHAR(100) NOT NULL,
+    passenger_phone VARCHAR(20) NOT NULL,
+    booking_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status VARCHAR(20) DEFAULT 'confirmed',
+    FOREIGN KEY (train_id) REFERENCES trains(id)
+);
+
+INSERT INTO trains (name, destination, date, available_seats) VALUES
+('The Canadian', 'Vancouver', '2025-03-01', 120),
+('Corridor Service', 'Toronto', '2025-03-01', 100),
+('Ocean Line', 'Halifax', '2025-03-01', 80),
+('Rocky Mountaineer', 'Banff', '2025-03-01', 90),
+('Quebec City Service', 'Quebec City', '2025-03-02', 110),
+('Northern Spirit', 'Churchill', '2025-03-02', 95),
+('Maritime Express', 'Moncton', '2025-03-02', 85),
+('Corridor Express', 'Ottawa', '2025-03-03', 75),
+('Mountain Express', 'Jasper', '2025-03-03', 150),
+('Prairie Service', 'Winnipeg', '2025-03-03', 100),
+('Atlantic Limited', 'Saint John', '2025-03-04', 160),
+('Capital Express', 'Montreal', '2025-03-04', 70),
+('Pacific Express', 'Victoria', '2025-03-04', 90),
+('Northern Route', 'Sudbury', '2025-03-05', 80),
+('Lake Service', 'Kingston', '2025-03-05', 110);
+
+
+INSERT INTO trains (name, destination, date, available_seats) VALUES
+('The Canadian', 'Vancouver', '2025-03-15', 120),
+('Corridor Service', 'Montreal', '2025-03-15', 100),
+('Ocean Line', 'Halifax', '2025-03-16', 90),
+('Rocky Mountaineer', 'Calgary', '2025-03-16', 85),
+('Quebec Express', 'Quebec City', '2025-03-17', 95);
+
+
+INSERT INTO trains (name, destination, date, available_seats) VALUES
+('Spring Break Express', 'Whistler', '2025-03-20', 75),
+('Spring Explorer', 'Niagara Falls', '2025-03-21', 85),
+('Northern Lights', 'Churchill', '2025-03-22', 60),
+('Prairie Spring', 'Regina', '2025-03-23', 90),
+('Atlantic Coast', 'St. John''s', '2025-03-24', 80);
+
+
+INSERT INTO trains (name, destination, date, available_seats) VALUES
+('The Canadian', 'Vancouver', '2025-03-28', 120),
+('Corridor Service', 'Toronto', '2025-03-29', 100),
+('Ocean Line', 'Halifax', '2025-03-30', 90),
+('Rocky Mountaineer', 'Banff', '2025-03-30', 85),
+('Quebec Express', 'Quebec City', '2025-03-31', 95);
